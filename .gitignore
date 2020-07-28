@@ -1,15 +1,15 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# Build results
+terra-zil/target
 
-# Test binary, built with `go test -c`
-*.test
+# Cargo+Git helper file (https://github.com/rust-lang/cargo/blob/0.44.1/src/cargo/sources/git/utils.rs#L320-L327)
+terra-zil/.cargo-ok
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# Text file backups
+terra-zil/**/*.rs.bk
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# macOS
+terra-zil/.DS_Store
+
+# IDEs
+terra-zil/*.iml
+.idea
