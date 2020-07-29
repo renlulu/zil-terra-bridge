@@ -3,7 +3,7 @@
   "title": "InitMsg",
   "type": "object",
   "required": [
-    "count"
+    "name"
   ],
   "properties": {
     "name": {

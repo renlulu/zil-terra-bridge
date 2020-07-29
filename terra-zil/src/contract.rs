@@ -3,9 +3,9 @@ use cosmwasm_std::{
     InitResponse, Querier, StdError, StdResult, Storage, Uint128,
 };
 
-use crate::msg::HandleMsg;
+use crate::msg::{HandleMsg, QueryMsg, ConfigResponse};
 use crate::msg::InitMsg;
-use crate::state::{config_set, lock_map_get, lock_map_set, total_amount_increase, Config};
+use crate::state::{config_set, lock_map_get, lock_map_set, total_amount_increase, Config, config_get};
 use std::ops::Add;
 
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -81,4 +81,20 @@ fn try_unlock<S: Storage, A: Api, Q: Querier>(
     };
 
     Ok(res)
+}
+
+pub fn query<S: Storage, A: Api, Q: Querier>(
+    deps: &Extern<S, A, Q>,
+    msg: QueryMsg,
+) -> StdResult<Binary> {
+    match msg {
+        QueryMsg::Config {} => {
+            let config = config_get(&deps.storage)?;
+            let out = to_binary(&ConfigResponse {
+                name: config.name,
+                owner: deps.api.human_address(&config.owner)?,
+            })?;
+            Ok(out)
+        }
+    }
 }

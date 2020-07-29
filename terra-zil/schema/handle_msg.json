@@ -5,10 +5,10 @@
     {
       "type": "object",
       "required": [
-        "increment"
+        "Lock"
       ],
       "properties": {
-        "increment": {
+        "Lock": {
           "type": "object"
         }
       }
@@ -16,22 +16,26 @@
     {
       "type": "object",
       "required": [
-        "reset"
+        "Unlock"
       ],
       "properties": {
-        "reset": {
+        "Unlock": {
           "type": "object",
           "required": [
-            "count"
+            "amount"
           ],
           "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int32"
+            "amount": {
+              "$ref": "#/definitions/Uint128"
             }
           }
         }
       }
     }
-  ]
+  ],
+  "definitions": {
+    "Uint128": {
+      "type": "string"
+    }
+  }
 }
