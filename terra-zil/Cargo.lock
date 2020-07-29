@@ -168,12 +168,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "cosmwasm-std"
+version = "0.10.0-alpha2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f848da5f60e976ab84bd3e22b1570754a71af31e2a0a0df506b65edc282723c3"
+dependencies = [
+ "base64",
+ "schemars",
+ "serde",
+ "serde-json-wasm",
+ "snafu",
+]
+
+[[package]]
 name = "cosmwasm-storage"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cdb6b6ca126f6041a815c32497db4aaf5d505c34cc879267b046b4f4666e43ab"
 dependencies = [
- "cosmwasm-std",
+ "cosmwasm-std 0.9.4",
  "serde",
 ]
 
@@ -183,7 +196,7 @@ version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0407aac6c2cebc277ddabb88316b00e7ac3b2bfea2716d15aec7f049e7ae8407"
 dependencies = [
- "cosmwasm-std",
+ "cosmwasm-std 0.9.4",
  "hex",
  "memmap",
  "parity-wasm",
@@ -893,16 +906,28 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ab0e7238dcc7b40a7be719a25365910f6807bd864f4cce6b2e6b873658e2b19d"
 
 [[package]]
+name = "terra-cosmwasm"
+version = "1.1.0-alpha"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "62dcdc3ca84d3fa333c0e51fa17f2307e225bb7a9a86767bca1803b82d09e6e7"
+dependencies = [
+ "cosmwasm-std 0.10.0-alpha2",
+ "schemars",
+ "serde",
+]
+
+[[package]]
 name = "terra-zil"
 version = "0.1.0"
 dependencies = [
  "cosmwasm-schema",
- "cosmwasm-std",
+ "cosmwasm-std 0.9.4",
  "cosmwasm-storage",
  "cosmwasm-vm",
  "schemars",
  "serde",
  "snafu",
+ "terra-cosmwasm",
 ]
 
 [[package]]
