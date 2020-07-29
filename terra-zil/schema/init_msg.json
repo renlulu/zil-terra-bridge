@@ -6,9 +6,8 @@
     "count"
   ],
   "properties": {
-    "count": {
-      "type": "integer",
-      "format": "int32"
+    "name": {
+      "type": "string"
     }
   }
 }
