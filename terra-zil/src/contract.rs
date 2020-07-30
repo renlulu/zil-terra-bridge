@@ -49,6 +49,7 @@ fn try_lock<S: Storage, A: Api, Q: Querier>(
     }
 
     let fund = &env.message.sent_funds[0];
+    // todo minimum check
     let amount = fund.amount;
     total_amount_increase(&mut deps.storage, amount);
 
